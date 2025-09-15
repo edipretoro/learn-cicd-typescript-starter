@@ -7,6 +7,9 @@ jobs:
         name: Deploy
         runs-on: ubuntu-latest
 
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
         steps:
           - name: Check out code
             uses: actions/checkout@v4
@@ -18,6 +21,9 @@ jobs:
 
           - name: Install dependencies
             run: npm ci
+
+          - name: Migrate the database
+            run: npm run db:migrate
 
           - name: Build project
             run: npm run build
