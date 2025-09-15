@@ -6,9 +6,9 @@ jobs:
     deploy:
         name: Deploy
         runs-on: ubuntu-latest
-
+        environment: CD
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: '${{ secrets.DATABASE_URL }}'
 
         steps:
           - name: Check out code
