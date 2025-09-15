@@ -22,11 +22,11 @@ jobs:
           - name: Install dependencies
             run: npm ci
 
-          - name: Migrate the database
-            run: npm run db:migrate
-
           - name: Build project
             run: npm run build
+
+          - name: Migrate the database
+            run: npm run db:migrate
 
           - id: 'auth'
             uses: 'google-github-actions/auth@v2'
